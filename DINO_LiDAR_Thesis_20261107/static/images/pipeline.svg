@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="460" viewBox="0 0 1120 460" role="img" aria-labelledby="title desc">
+<title id="title">DINO-guided learning and LiDAR-only semantic mapping</title><desc id="desc">During training, RGB features from frozen DINOv3 and geometric student features enter a trainable fusion teacher. Knowledge distillation supervises the LiDAR student. Deployment uses the student and PIN-SLAM geometric tracking, followed by native semantic map learning from student labels.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#929ca1"/></marker><marker id="teal-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#60918a"/></marker></defs>
+<style>text{font-family:'Segoe UI',Arial,sans-serif;fill:#454b4f}.label{font-size:12px;font-weight:600;letter-spacing:1.4px}.main{font-size:16px;font-weight:600}.sub{font-size:12px;fill:#7f898e}.note{font-size:11px;fill:#818a8d}.arrow{fill:none;stroke:#929ca1;stroke-width:1.6;marker-end:url(#arrow)}.train{fill:#f3f7fa;stroke:#bfd0dc;stroke-width:1.2}.student{fill:#f0f7f4;stroke:#abc7ba;stroke-width:1.2}.mapping{fill:#fbf6ed;stroke:#d8c7a8;stroke-width:1.2}</style>
+<rect x="1" y="1" width="1118" height="458" rx="7" fill="#fff" stroke="#e7e9e9"/>
+<text x="27" y="35" class="label" fill="#66859b">TRAINING</text><text x="1090" y="35" class="note" text-anchor="end">Paired images + LiDAR + point labels</text>
+<rect class="train" x="28" y="64" width="122" height="54" rx="5"/><text class="main" x="89" y="96" text-anchor="middle">RGB images</text>
+<path class="arrow" d="M150 91H186"/>
+<rect class="train" x="190" y="64" width="183" height="54" rx="5"/><text class="main" x="281" y="88" text-anchor="middle">Frozen DINOv3</text><text class="sub" x="281" y="106" text-anchor="middle">Dense visual descriptors</text>
+<path class="arrow" d="M373 91H444"/><text class="note" x="409" y="79" text-anchor="middle">align</text>
+<rect class="train" x="448" y="64" width="221" height="115" rx="5"/><text class="main" x="558" y="105" text-anchor="middle">Trainable fusion teacher</text><text class="sub" x="558" y="129" text-anchor="middle">Visual + geometric features</text><text class="sub" x="558" y="150" text-anchor="middle">Multi-scale prediction heads</text>
+<rect class="student" x="28" y="148" width="122" height="54" rx="5"/><text class="main" x="89" y="180" text-anchor="middle">LiDAR scan</text>
+<path class="arrow" d="M150 175H186"/>
+<rect class="student" x="190" y="148" width="183" height="54" rx="5"/><text class="main" x="281" y="172" text-anchor="middle">LiDAR student</text><text class="sub" x="281" y="190" text-anchor="middle">Hierarchical point–voxel features</text>
+<path class="arrow" d="M373 175H409V151H444"/>
+<path class="arrow" d="M669 91H735"/>
+<rect class="train" x="739" y="64" width="184" height="54" rx="5"/><text class="main" x="831" y="87" text-anchor="middle">Distillation</text><text class="sub" x="831" y="106" text-anchor="middle">Teacher → student</text>
+<path d="M831 118V177H923" fill="none" stroke="#60918a" stroke-width="1.7" marker-end="url(#teal-arrow)"/>
+<rect class="student" x="930" y="148" width="161" height="54" rx="5"/><text class="main" x="1010" y="172" text-anchor="middle">Trained student</text><text class="sub" x="1010" y="190" text-anchor="middle">19 semantic classes</text>
+<text x="739" y="221" class="note">Class-weighted semantic supervision</text>
+<path d="M28 245H1091" stroke="#e7e9e9"/>
+<text x="27" y="279" class="label" fill="#5b8575">DEPLOYMENT</text><text x="1090" y="279" class="note" text-anchor="end">LiDAR input alone</text>
+<rect class="student" x="28" y="310" width="122" height="54" rx="5"/><text class="main" x="89" y="342" text-anchor="middle">LiDAR scan</text>
+<path class="arrow" d="M150 337H186"/>
+<rect class="student" x="190" y="310" width="183" height="54" rx="5"/><text class="main" x="281" y="334" text-anchor="middle">Frozen student</text><text class="sub" x="281" y="352" text-anchor="middle">Point-wise predictions</text>
+<path class="arrow" d="M373 337H444"/><text class="note" x="409" y="326" text-anchor="middle">labels</text>
+<rect class="mapping" x="448" y="310" width="246" height="89" rx="5"/><text class="main" x="571" y="337" text-anchor="middle">Native map learning</text><text class="sub" x="571" y="358" text-anchor="middle">Shared neural point features</text><text class="sub" x="571" y="379" text-anchor="middle">+ semantic MLP decoder</text>
+<path class="arrow" d="M694 354H788"/>
+<rect class="mapping" x="792" y="325" width="299" height="62" rx="5"/><text class="main" x="941" y="352" text-anchor="middle">Queryable semantic scene</text><text class="sub" x="941" y="373" text-anchor="middle">Geometry + semantic field</text>
+<path class="arrow" d="M89 364V416H571V403"/><text class="note" x="293" y="436" text-anchor="middle">PIN-SLAM geometric tracking → pose</text>
+</svg>

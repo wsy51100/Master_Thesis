@@ -1,0 +1,166 @@
+{
+  "prepared_utc": "2026-11-07T11:32:21.778230+00:00",
+  "scope": "Existing thesis figures copied or format-optimized for the local project page. No new experiment, inference, scientific rendering, crop or invented result.",
+  "recommended_hero": "teaser.jpg",
+  "missing_assets": [
+    "Standalone SemanticKITTI segmentation qualitative figure aligned with the selected checkpoint",
+    "KITTI08 semantic map figure",
+    "IPB native semantic neural-point map for the selected model",
+    "Ready-to-publish demonstration video"
+  ],
+  "assets": [
+    {
+      "filename": "teaser.jpg",
+      "source_path": "output/thesis/Chapter5_Experiments_20261026/latex/figures/native_semantic_map.png",
+      "source_sha256": "cd9c1451713fa1a25827738bdb3d13241e8f559e9d8d03520868520820fba946",
+      "source_bytes": 4357283,
+      "caption": "KITTI09 neural support-point maps over frames 0–1590. Left: geometry-only mapping. Middle: ground-truth semantic supervision. Right: online student-predicted semantic supervision. All panels use the same reference coordinates, class colours and display sampling.",
+      "notes": "KITTI09; sequence 09 belongs to the student segmentation training split. This is native semantic-decoder output, not raw accumulated scan predictions.",
+      "source_dimensions_px": [
+        5642,
+        2367
+      ],
+      "output_dimensions_px": [
+        2200,
+        923
+      ],
+      "conversion": "Whole-image proportional resize to maximum 2200 px, JPEG quality 90, no crop, RGB, progressive, chroma subsampling disabled.",
+      "output_sha256": "fda77c037b4404536f7045b983e773e972555119cc605f1948874ed41060ec00",
+      "output_bytes": 366396
+    },
+    {
+      "filename": "map-details.jpg",
+      "source_path": "outputs/kitti09_online_semantic_compare_20261023/reports/r01/figures/local_map_comparison.png",
+      "source_sha256": "b2fb465143588dcefe8fe825f6e85539faa841844cbc88e85022cbf5ff9b7681",
+      "source_bytes": 5880109,
+      "caption": "Local KITTI09 neural support-point maps in fixed 30 × 30 × 6 m reference boxes at frames 400, 800 and 1200. Columns: geometry-only, ground-truth semantic supervision, and student supervision.",
+      "notes": "Same KITTI09 supplementary label-source experiment as the teaser; retain all panels and coordinate axes.",
+      "source_dimensions_px": [
+        4229,
+        4094
+      ],
+      "output_dimensions_px": [
+        2200,
+        2130
+      ],
+      "conversion": "Whole-image proportional resize to maximum 2200 px, JPEG quality 90, no crop, RGB, progressive, chroma subsampling disabled.",
+      "output_sha256": "8f07705811fcd4ad6474a66e1930bfba57f6b1d5ae8ecc9d535f7986fec093a0",
+      "output_bytes": 1748387
+    },
+    {
+      "filename": "fusion-teacher.svg",
+      "source_path": "output/figures/Fusion_Teacher_Compact_20261026/figures/fusion_teacher_compact.svg",
+      "source_sha256": "fbcc7e76ae746f7dafbfa8e60d80773b5005745a0b3033aafda5e23f38f9a578",
+      "source_bytes": 138929,
+      "caption": "Training-time fusion teacher. Frozen DINOv3 descriptors are adapted and fused with point-aligned features at four stages; separate auxiliary and main classifiers provide teacher predictions.",
+      "notes": "Architecture schematic, not experimental output. Images and fusion teacher are used during training.",
+      "source_dimensions": {
+        "width": "1044pt",
+        "height": "583.2pt",
+        "viewBox": "0 0 1044 583.2"
+      },
+      "conversion": "Unmodified SVG copy; no crop, redraw or scientific-content change.",
+      "output_sha256": "fbcc7e76ae746f7dafbfa8e60d80773b5005745a0b3033aafda5e23f38f9a578",
+      "output_bytes": 138929
+    },
+    {
+      "filename": "semantic-mapping.svg",
+      "source_path": "output/figures/Semantic_Mapping_Flow_20261026/figures/semantic_mapping_flow.svg",
+      "source_sha256": "8645cd77a0a3534ed95af82e0ce18299fb456e459f4bbaf6777e0baf1b033154",
+      "source_bytes": 67710,
+      "caption": "LiDAR-only semantic mapping. The frozen student supplies point labels for PIN-SLAM map learning, while point-to-implicit registration estimates poses geometrically. A separate semantic decoder reads the learned neural-point map.",
+      "notes": "Current native semantic MLP route. No direct semantic tracking residual is shown or claimed.",
+      "source_dimensions": {
+        "width": "1123.2pt",
+        "height": "518.4pt",
+        "viewBox": "0 0 1123.2 518.4"
+      },
+      "conversion": "Unmodified SVG copy; no crop, redraw or scientific-content change.",
+      "output_sha256": "8645cd77a0a3534ed95af82e0ce18299fb456e459f4bbaf6777e0baf1b033154",
+      "output_bytes": 67710
+    },
+    {
+      "filename": "student-architecture.svg",
+      "source_path": "output/figures/Student_Architecture_Clear_20261025/figures/student_architecture_overview.svg",
+      "source_sha256": "e40f38577cb6846e99a89e08c628e874af4aef0cb550fa7453d4e15d090488b5",
+      "source_bytes": 25730,
+      "caption": "LiDAR student architecture with four point–voxel stages, point-aligned stage features, a main 19-class classifier, and training-only auxiliary heads.",
+      "notes": "Local student architecture, not a reproduction of the official 2DPASS architecture. Source README confirms correspondence to integrated student.py/voxelizer.py.",
+      "source_dimensions": {
+        "width": "1209.6pt",
+        "height": "662.4pt",
+        "viewBox": "0 0 1209.6 662.4"
+      },
+      "conversion": "Unmodified SVG copy; no crop, redraw or scientific-content change.",
+      "output_sha256": "e40f38577cb6846e99a89e08c628e874af4aef0cb550fa7453d4e15d090488b5",
+      "output_bytes": 25730
+    },
+    {
+      "filename": "trajectory-prefix.svg",
+      "source_path": "output/thesis/Chapter5_Experiments_20261026/latex/figures/prefix_trajectories.svg",
+      "source_sha256": "da2c03fdb5261bc42adfdf02fda1b1910e83de609e0d3f40f06c4a3947996b42",
+      "source_bytes": 26632,
+      "caption": "Recorded odometry over frames 0–499 on KITTI08 and IPB. Each trajectory is rigidly aligned to the same reference interval with scale fixed to one.",
+      "notes": "Prefix trajectories; do not equate with full-sequence or PGO results. ATE and RPE describe different errors.",
+      "source_dimensions": {
+        "width": "561.6pt",
+        "height": "446.4pt",
+        "viewBox": "0 0 561.6 446.4"
+      },
+      "conversion": "Unmodified SVG copy; no crop, redraw or scientific-content change.",
+      "output_sha256": "da2c03fdb5261bc42adfdf02fda1b1910e83de609e0d3f40f06c4a3947996b42",
+      "output_bytes": 26632
+    },
+    {
+      "filename": "segmentation-own.jpg",
+      "source_path": "outputs/own500_epoch44_prediction_visualization_20261027/figures/frames_comparison.png",
+      "source_sha256": "d06ad898c0307fbba744b89c46ecf49309da2ef45c1fd16c216a535c01fed683",
+      "source_bytes": 217033,
+      "caption": "Ground-truth and LiDAR-only predictions from the IPB student trained from scratch (epoch 44). Frames 0, 99, 199, 299 and 399 are training frames; frame 499 is a validation frame. Each pair uses the same points, view and SemanticKITTI class colours.",
+      "notes": "Mixed train/validation qualitative gallery; not an independent test set. Student corresponds to scratch validation mIoU 40.817739% and accuracy 86.001237% over frames 400–499.",
+      "source_dimensions_px": [
+        3060,
+        1910
+      ],
+      "output_dimensions_px": [
+        2200,
+        1373
+      ],
+      "conversion": "Whole-image proportional resize to maximum 2200 px, JPEG quality 90, no crop, RGB, progressive, chroma subsampling disabled.",
+      "output_sha256": "ce7595f61b256322adf06696d046b6126b13caac0fbfab623aee8552688e2157",
+      "output_bytes": 538192
+    },
+    {
+      "filename": "backbone-learning-curves.svg",
+      "source_path": "output/thesis/Chapter5_Experiments_20261026/latex/figures/backbone_learning_curves.svg",
+      "source_sha256": "c61ccb5f327e76f9034b2ed1b41431e79525ef851805e68f8d3345ac3faef97e",
+      "source_bytes": 23496,
+      "caption": "SemanticKITTI sequence 08 validation histories with DINOv2 and DINOv3 over the common 50-epoch budget, including evaluation without intensity. Markers identify checkpoints selected with normal intensity input.",
+      "notes": "Training/validation history figure. Use the caption and protocols from Chapter 5; do not claim independent test results.",
+      "source_dimensions": {
+        "width": "684pt",
+        "height": "277.2pt",
+        "viewBox": "0 0 684 277.2"
+      },
+      "conversion": "Unmodified SVG copy; no crop, redraw or scientific-content change.",
+      "output_sha256": "c61ccb5f327e76f9034b2ed1b41431e79525ef851805e68f8d3345ac3faef97e",
+      "output_bytes": 23496
+    },
+    {
+      "filename": "weak-classes.svg",
+      "source_path": "output/thesis/Chapter5_Experiments_20261026/latex/figures/segmentation_weak_classes.svg",
+      "source_sha256": "7f1a0a91314e71342906c7d74b516f91fe6ebe5fcc5b2ca0928bbcd54a094f4e",
+      "source_bytes": 19842,
+      "caption": "SemanticKITTI sequence 08 class IoU for the three augmentation targets. The last setting combines local class weights and rare-class augmentation; each panel begins at zero and uses its own scale.",
+      "notes": "Combined ablation: local weighting plus augmentation. Do not attribute the entire difference solely to augmentation.",
+      "source_dimensions": {
+        "width": "684pt",
+        "height": "266.4pt",
+        "viewBox": "0 0 684 266.4"
+      },
+      "conversion": "Unmodified SVG copy; no crop, redraw or scientific-content change.",
+      "output_sha256": "7f1a0a91314e71342906c7d74b516f91fe6ebe5fcc5b2ca0928bbcd54a094f4e",
+      "output_bytes": 19842
+    }
+  ]
+}

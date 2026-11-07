@@ -1,0 +1,44 @@
+{
+  "date": "2026-11-07",
+  "scope": "Local static project page; no remote publication",
+  "static_checks": {
+    "missing_local_files": [],
+    "missing_anchors": [],
+    "duplicate_ids": [],
+    "external_runtime_assets": [],
+    "svg_files_parsed": 8,
+    "external_svg_dependencies": [],
+    "nojekyll_present": true
+  },
+  "browser_checks": {
+    "http_status": 200,
+    "javascript_syntax": "node --check passed",
+    "javascript_console_errors": [],
+    "desktop_viewport": 1280,
+    "mobile_viewports": [
+      390,
+      320
+    ],
+    "whole_page_horizontal_overflow": false,
+    "table_overflow_contained": true,
+    "result_tabs": "passed",
+    "resource_placeholder_dialog": "passed",
+    "figure_lightbox": "passed",
+    "bibtex_copy_status": "passed"
+  },
+  "known_placeholders": [
+    "official thesis title",
+    "author",
+    "university",
+    "supervisor",
+    "year",
+    "final thesis PDF",
+    "code/model URL",
+    "demo video",
+    "poster/slides",
+    "SemanticKITTI qualitative comparison",
+    "test-submission URL",
+    "canonical/share metadata",
+    "final BibTeX and acknowledgements"
+  ]
+}
