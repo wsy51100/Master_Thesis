@@ -32,7 +32,7 @@
   <header class="hero publication-header" id="top">
     <div class="hero-body">
       <div class="container is-max-desktop has-text-centered">
-        <p class="eyebrow">MASTER'S THESIS · RESEARCH PROJECT</p>
+        <p class="eyebrow">MASTER'S THESIS</p>
         <!-- TODO_OFFICIAL_THESIS_TITLE: this is a descriptive working title, not a confirmed thesis title. -->
         <h1 class="title is-1 publication-title">Leveraging Vision Foundation Models for Semantic Implicit Multi-Sensor SLAM</h1>
         <p class="publication-subtitle">A integration of semantic segmentation into PIN-SLAM</p>
@@ -61,22 +61,27 @@
     <section class="overview-section" id="overview" aria-labelledby="overview-title">
       <div class="container wide-container">
         <p class="section-kicker">01 · OVERVIEW</p>
-        <h2 class="title is-3 section-title" id="overview-title">Overall Pipeline</h2>
+        <h2 class="title is-3 section-title" id="overview-title">Overall of the Pipeline</h2>
 
         <figure class="editable-figure overview-figure">
           <button
             class="image-button"
-            data-lightbox="./static/images/overall-pipeline-placeholder.svg"
+            data-lightbox="static\images\fig5_pipeline.jpg"
             data-caption="Overall pipeline figure to add."
             aria-label="Enlarge the overall pipeline figure">
             <img
-              src="./static/images/overall-pipeline-placeholder.svg"
+              src="static\images\fig5_pipeline.jpg"
               width="1120" height="320"
               alt="Placeholder for the overall pipeline figure"
               fetchpriority="high">
           </button>
           <figcaption>
-            <span class="placeholder-text">[TODO_OVERVIEW_CAPTION: add a short caption for your overall pipeline.]</span>
+            <span class="placeholder-text"> Overview of the teacher–student training pipeline for LiDAR semantic segmentation.
+                                            The fusion teacher combines image features from a frozen DINOv3 encoder with LiDAR features
+                                            from the student encoder. Groundtruth point labels supervise teacher and student model, while
+                                            KL distillation aligns the student’s class probabilities with those of the teacher on image paired
+                                            points with valid labels. Teacher and student model share the LiDAR encoder and use separate
+                                            classifiers. Only the LiDAR student is used at inference.</span>
           </figcaption>
         </figure>
       </div>
@@ -104,7 +109,29 @@
         <h2 class="title is-3 section-title" id="abstract-title">Abstract</h2>
 
         <div class="content writing-area">
-          <p class="placeholder-text">[TODO_ABSTRACT: add your abstract here.]</p>
+          <p class="placeholder-text"><p> In simultaneous localization and mapping problem beyond pose estimation
+                                      and geometric reconstruction, a good semantic understanding of the scene
+                                      is also crucial part to support navigation, interaction, and decision-making.
+                                      SLAM provides a key foundation for estimating of the system’s motion, position, and together with a representation of vehicle’s surroundings. In particular,
+                                      self-driving cars or robots need a fine-grained understanding of the surfaces and
+                                      objects in their vicinity. Geometric maps describe the spatial structure of the
+                                      environment, while semantic information identifies the categories of its objects
+                                      and regions. This additional context can support navigation, interaction, and
+                                      decision-making by helping autonomous systems interpret their surroundings.</p>
+                                      
+                                      <p>This thesis addresses the integration of semantic scene understanding into
+                                      an efficient implicit SLAM pipeline. The objective is to exploit vision foundation model features during training while enabling semantic segmentation from
+                                      LiDAR scans alone at inference time, and to incorporate the resulting predictions
+                                      into an incrementally updated map. The proposed approach takes advantage of
+                                      DINOv3 feature during training of a semantic segmentation model. Once trained,
+                                      the model predicts semantic labels directly from LiDAR input, without requiring images for segmentation. The segmentation pipeline is integrated into PIN
+                                      SLAM, where successive scans update the same map, allowing scene geometry
+                                      and semantic categories to be queried and visualized together.</p>
+                                     
+                                      <p>Our method on SemanticKITTI achieves a mean intersection over union (mIoU)
+                                      of 64.13% on the validation set and 63.5% on the test set, with semantic segmentation inference running at 16.5 frames per second. On the IPB dataset
+                                      validation split, the model trained on manually annotated local data achieves
+                                      56.87% mIoU. Compared with geometry-only mapping, the semantic configuration achieves lower aligned absolute pose error. The integrated system demonstrates live semantic map updates in PIN-SLAM using LiDAR input alone.</p>
         </div>
       </div>
     </section>
