@@ -3,10 +3,10 @@
  * External example: code: 'https://github.com/YOUR_USERNAME/YOUR_CODE_REPOSITORY'
  * Keep null for resources that are not available yet. */
 const RESOURCE_LINKS = {
-  thesis: null,
+  thesis: 'static/pdfs/thesis_shuyi_wu.pdf',
   code: null,
   video: null,
-  poster: null,
+  poster: 'static/pdfs/poster.pdf',
 };
 
 (() => {
