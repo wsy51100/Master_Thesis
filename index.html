@@ -24,6 +24,7 @@
   <link rel="icon" href="./static/images/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="./static/css/five-sections.css">
   <script defer src="./static/js/index.js"></script>
 </head>
 <body>
@@ -40,155 +41,228 @@
         </div>
         <p class="publication-affiliation"><span data-placeholder="TODO_UNIVERSITY">University of Bonn</span> </p>
         <p class="publication-supervisor">Supervisor: <span data-placeholder="TODO_SUPERVISOR">Dr.<a href="https://www.ipb.uni-bonn.de/people/louis-wiesmann/index.html" target="_blank" rel="noopener noreferrer">Louis Wiesmann</a> and Prof.Dr <a href="https://www.ipb.uni-bonn.de/people/cyrill-stachniss/index.html" target="_blank" rel="noopener noreferrer">Cyrill Stachniss</a></span> <span class="dot">·</span> <span data-placeholder="TODO_YEAR">2026</span></p>
-        <div class="publication-links" aria-label="Project resources">
-          <a href="#resources" class="button is-dark is-rounded resource-link" data-resource="thesis"><svg class="icon-svg" aria-hidden="true"><use href="#icon-file"/></svg><span>Thesis PDF</span><span class="button-pending">TO ADD</span></a>
-          <a href="#resources" class="button is-dark is-rounded resource-link" data-resource="code"><svg class="icon-svg" aria-hidden="true"><use href="#icon-code"/></svg><span>Code</span><span class="button-pending">TO ADD</span></a>
-          <a href="#video" class="button is-dark is-rounded resource-link" data-resource="video"><svg class="icon-svg" aria-hidden="true"><use href="#icon-play"/></svg><span>Video</span><span class="button-pending">TO ADD</span></a>
-          <a href="#resources" class="button is-dark is-rounded resource-link" data-resource="poster"><svg class="icon-svg" aria-hidden="true"><use href="#icon-poster"/></svg><span>Poster</span><span class="button-pending">TO ADD</span></a>
+        <div class="publication-links" id="project-resources" aria-label="Project resources">
+          <a href="#project-resources" class="button is-dark is-rounded resource-link" data-resource="thesis"><svg class="icon-svg" aria-hidden="true"><use href="#icon-file"/></svg><span>Thesis PDF</span><span class="button-pending">TO ADD</span></a>
+          <a href="#project-resources" class="button is-dark is-rounded resource-link" data-resource="code"><svg class="icon-svg" aria-hidden="true"><use href="#icon-code"/></svg><span>Code</span><span class="button-pending">TO ADD</span></a>
+          <a href="#results" class="button is-dark is-rounded resource-link" data-resource="video"><svg class="icon-svg" aria-hidden="true"><use href="#icon-play"/></svg><span>Video</span><span class="button-pending">TO ADD</span></a>
+          <a href="#project-resources" class="button is-dark is-rounded resource-link" data-resource="poster"><svg class="icon-svg" aria-hidden="true"><use href="#icon-poster"/></svg><span>Poster</span><span class="button-pending">TO ADD</span></a>
         </div>
       </div>
     </div>
   </header>
 
   <main id="main-content">
-    <section class="teaser-section" aria-label="Research overview">
+
+    <!-- ============================================================
+         01 / OVERALL PIPELINE FIGURE
+         TODO_OVERVIEW_IMAGE: replace BOTH image paths with your figure.
+         TODO_OVERVIEW_CAPTION: replace the visible figure caption.
+         ============================================================ -->
+    <section class="overview-section" id="overview" aria-labelledby="overview-title">
       <div class="container wide-container">
-        <figure class="teaser-figure">
-          <button class="image-button" data-lightbox="./static/images/teaser.jpg" data-caption="KITTI09, frames 0–1590. Geometry-only, ground-truth-supervised, and student-supervised native neural point maps. All panels use the same reference coordinates, class colours, and display sampling." aria-label="Enlarge the semantic map comparison">
-            <img src="./static/images/teaser.jpg" width="2200" height="923" alt="Three aligned KITTI09 neural point maps: geometry-only in grey, ground-truth semantics, and online student semantics." fetchpriority="high">
+        <p class="section-kicker">01 · OVERVIEW</p>
+        <h2 class="title is-3 section-title" id="overview-title">Overall Pipeline</h2>
+
+        <figure class="editable-figure overview-figure">
+          <button
+            class="image-button"
+            data-lightbox="./static/images/overall-pipeline-placeholder.svg"
+            data-caption="Overall pipeline figure to add."
+            aria-label="Enlarge the overall pipeline figure">
+            <img
+              src="./static/images/overall-pipeline-placeholder.svg"
+              width="1120" height="320"
+              alt="Placeholder for the overall pipeline figure"
+              fetchpriority="high">
           </button>
-          <figcaption><strong>From scan predictions to a persistent semantic map.</strong> KITTI09, frames 0–1590: geometry-only mapping (left), ground-truth semantic supervision (middle), and online student supervision (right). Colours show the semantic categories of neural support points.</figcaption>
+          <figcaption>
+            <span class="placeholder-text">[TODO_OVERVIEW_CAPTION: add a short caption for your overall pipeline.]</span>
+          </figcaption>
         </figure>
-        <p class="tldr"><strong>TL;DR</strong> Frozen DINOv3 features guide learning; a LiDAR-only student supplies the labels for PIN-SLAM's native semantic neural map.</p>
-        <div class="research-highlights" aria-label="Selected validation results">
-          <div><span class="metric-value">64.13<span>%</span></span><span class="metric-name">SemanticKITTI mIoU</span><span class="metric-detail">Validation sequence 08 · 4,071 scans</span></div>
-          <div><span class="metric-value">60.78<span>%</span></span><span class="metric-name">Without reflectance</span><span class="metric-detail">Same checkpoint · same validation points</span></div>
-          <div><span class="metric-value">43.78<span>%</span></span><span class="metric-name">IPB validation mIoU</span><span class="metric-detail">Fine-tuned student · frames 400–499</span></div>
-        </div>
       </div>
     </section>
 
+    <!-- Navigation links must match the five section IDs. -->
     <nav class="section-nav" aria-label="Page sections">
-      <div><a href="#abstract">Abstract</a><a href="#method">Method</a><a href="#results">Results</a><a href="#mapping">Mapping</a><a href="#resources">Resources</a><a href="#citation">Citation</a></div>
+      <div>
+        <a href="#overview">Overview</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#motivation">Motivation</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#results">Results</a>
+      </div>
     </nav>
 
-    <section class="section paper-section abstract-section" id="abstract">
+    <!-- ============================================================
+         02 / ABSTRACT
+         TODO_ABSTRACT: replace the placeholder paragraph with your text.
+         Add a new <p>...</p> for each additional paragraph.
+         ============================================================ -->
+    <section class="section paper-section abstract-section" id="abstract" aria-labelledby="abstract-title">
       <div class="container reading-container">
-        <p class="section-kicker">THE IDEA</p>
-        <h2 class="title is-3 section-title">Visual knowledge. LiDAR-only operation.</h2>
-        <div class="content abstract-copy">
-          <p>Semantic maps connect the geometry of a scene with the categories that describe it. This thesis develops a framework that transfers visual information into a LiDAR semantic predictor and uses its outputs to build a persistent semantic neural map. During training, frozen DINOv3 image descriptors are aligned with LiDAR points and combined with hierarchical geometric features in a trainable fusion teacher. Multi-scale knowledge distillation transfers image-conditioned predictions to a LiDAR student, while class-weighted supervision accounts for the long-tailed category distribution.</p>
-          <p>Deployment retains the student and its main classifier, requiring LiDAR input alone. After geometric registration, the predicted labels supervise PIN-SLAM's native semantic decoder and shared neural point features. The student achieves <strong>64.13% mIoU</strong> on SemanticKITTI validation sequence 08 and <strong>60.78%</strong> when reflectance is unavailable. On the IPB validation frames, the fine-tuned student achieves <strong>43.78% mIoU</strong> using LiDAR alone. The integrated system connects image-assisted semantic learning with queryable neural scene mapping.</p>
+        <p class="section-kicker">02 · ABSTRACT</p>
+        <h2 class="title is-3 section-title" id="abstract-title">Abstract</h2>
+
+        <div class="content writing-area">
+          <p class="placeholder-text">[TODO_ABSTRACT: add your abstract here.]</p>
         </div>
       </div>
     </section>
 
-    <section class="section paper-section" id="method">
+    <!-- ============================================================
+         03 / MOTIVATION
+         TODO_MOTIVATION: add the problem, its importance, and your goal.
+         You can use several <p>...</p> elements.
+         ============================================================ -->
+    <section class="section paper-section" id="motivation" aria-labelledby="motivation-title">
+      <div class="container reading-container">
+        <p class="section-kicker">03 · MOTIVATION</p>
+        <h2 class="title is-3 section-title" id="motivation-title">Motivation</h2>
+
+        <div class="content writing-area">
+          <p class="placeholder-text">[TODO_MOTIVATION: explain the problem and the motivation for your work.]</p>
+        </div>
+
+        <!-- Optional: insert a motivation figure here. -->
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04 / PIPELINE EXPLANATION
+         The overview above answers "what does the system look like?"
+         This section explains the individual parts.
+         ============================================================ -->
+    <section class="section paper-section" id="pipeline" aria-labelledby="pipeline-title">
       <div class="container wide-container">
-        <p class="section-kicker">METHOD OVERVIEW</p>
-        <h2 class="title is-3 section-title">Learn with images. Map with LiDAR.</h2>
-        <p class="section-intro">A training-time visual teacher connects a point-cloud student to persistent semantic mapping.</p>
-        <figure class="pipeline-figure">
-          <button class="image-button" data-lightbox="./static/images/pipeline.svg" data-caption="System overview. Images and frozen DINOv3 are used during training. Deployment uses the LiDAR student; its labels supervise native semantic map learning after geometric tracking." aria-label="Enlarge the system overview">
-            <img src="./static/images/pipeline.svg" width="1120" height="460" alt="Training: calibrated RGB and LiDAR features enter a fusion teacher, which distils semantic predictions to the student. Deployment: LiDAR student labels supervise native semantic mapping after geometric tracking." loading="lazy">
+        <p class="section-kicker">04 · METHOD</p>
+        <h2 class="title is-3 section-title" id="pipeline-title">Pipeline</h2>
+
+        <div class="content writing-area centered-copy">
+          <p class="placeholder-text">[TODO_PIPELINE_INTRO: introduce the stages of your pipeline.]</p>
+        </div>
+
+        <!-- Optional detailed figure. Replace both paths and its caption. -->
+        <figure class="editable-figure detail-placeholder-figure">
+          <button
+            class="image-button"
+            data-lightbox="./static/images/pipeline-detail-placeholder.svg"
+            data-caption="Detailed pipeline figure to add."
+            aria-label="Enlarge the detailed pipeline figure">
+            <img
+              src="./static/images/pipeline-detail-placeholder.svg"
+              width="1120" height="240"
+              alt="Placeholder for a detailed pipeline or architecture figure"
+              loading="lazy">
           </button>
-          <figcaption><strong>Training and deployment are distinct stages.</strong> The student predicts per-point categories. PIN-SLAM's separate semantic MLP learns a spatial semantic field from those labels; motion estimation uses geometric registration.</figcaption>
+          <figcaption><span class="placeholder-text">[Add the detailed figure caption, or remove this figure if it is unnecessary.]</span></figcaption>
         </figure>
-        <div class="method-columns">
-          <article><span class="step-number">01</span><h3>Learn from visual features</h3><p>Calibrated image–LiDAR correspondences associate frozen DINOv3 descriptors with scan points. A trainable fusion teacher combines them with four stages of point–voxel features.</p></article>
-          <article><span class="step-number">02</span><h3>Deploy the LiDAR student</h3><p>Class-weighted segmentation and multi-head distillation train 19-class predictions. Inference uses one LiDAR scan, with an explicit availability flag for reflectance.</p></article>
-          <article><span class="step-number">03</span><h3>Learn a semantic neural map</h3><p>Original point indices preserve label correspondence. After tracking, the predictions supervise the native map decoder and shared features for semantic scene queries.</p></article>
+
+        <div class="module-list">
+          <article class="edit-module" id="correspondence">
+            <p class="module-number">4.1</p>
+            <div class="module-body">
+              <h3>2D–3D Correspondence</h3>
+              <div class="content">
+                <p class="placeholder-text">[TODO_CORRESPONDENCE: add the explanation for this part.]</p>
+              </div>
+              <!-- Optional correspondence figure goes here. -->
+            </div>
+          </article>
+
+          <article class="edit-module" id="segmentation-method">
+            <p class="module-number">4.2</p>
+            <div class="module-body">
+              <h3>DINOv3-Assisted LiDAR Segmentation</h3>
+              <div class="content">
+                <p class="placeholder-text">[TODO_SEGMENTATION_METHOD: add the explanation for this part.]</p>
+              </div>
+              <!-- Optional teacher/student architecture figure goes here. -->
+            </div>
+          </article>
+
+          <article class="edit-module" id="semantic-mapping">
+            <p class="module-number">4.3</p>
+            <div class="module-body">
+              <h3>Semantic Neural Mapping</h3>
+              <div class="content">
+                <p class="placeholder-text">[TODO_SEMANTIC_MAPPING: add the explanation for this part.]</p>
+              </div>
+              <!-- Optional native semantic mapping flow figure goes here. -->
+            </div>
+          </article>
         </div>
-        <details class="figure-details"><summary>Explore the training architecture</summary><figure><button class="image-button" data-lightbox="./static/images/fusion-teacher.svg" data-caption="Training architecture from the thesis: frozen DINOv3, trainable feature adapters and fusion stages, and main and auxiliary prediction heads." aria-label="Enlarge the fusion-teacher architecture"><img src="./static/images/fusion-teacher.svg" alt="Detailed four-stage DINOv3 fusion-teacher architecture." loading="lazy"></button><figcaption>The frozen visual encoder guides the trainable fusion teacher. The teacher and visual branch are used during training.</figcaption></figure></details>
-        <details class="figure-details"><summary>Explore the PIN-SLAM deployment interface</summary><figure><button class="image-button" data-lightbox="./static/images/semantic-mapping.svg" data-caption="Native semantic mapping flow from the thesis. A frozen student supplies labels to ray sampling and map optimization. Geometric registration is the motion-estimation path." aria-label="Enlarge the semantic mapping flow"><img src="./static/images/semantic-mapping.svg" alt="Frozen student and geometric tracking feed PIN-SLAM map sampling, optimization, and native semantic decoding." loading="lazy"></button><figcaption>Student labels enter the native map-learning path after current-frame geometric tracking.</figcaption></figure></details>
       </div>
     </section>
 
-    <section class="section paper-section results-section" id="results">
+    <!-- ============================================================
+         05 / RESULTS
+         Add your own figures, tables, captions, splits and metrics.
+         No previous experiment numbers have been inserted here.
+         ============================================================ -->
+    <section class="section paper-section results-section" id="results" aria-labelledby="results-title">
       <div class="container wide-container">
-        <p class="section-kicker">EXPERIMENTAL RESULTS</p>
-        <h2 class="title is-3 section-title">Semantic segmentation from LiDAR alone</h2>
-        <p class="section-intro">Full-scan predictions, 19 semantic classes, and explicitly identified evaluation splits.</p>
-        <div class="result-tabs" role="tablist" aria-label="Segmentation experiments">
-          <button id="tab-semkitti" role="tab" aria-selected="true" aria-controls="panel-semkitti" tabindex="0">SemanticKITTI</button>
-          <button id="tab-ipb" role="tab" aria-selected="false" aria-controls="panel-ipb" tabindex="-1">IPB dataset</button>
-          <button id="tab-ablation" role="tab" aria-selected="false" aria-controls="panel-ablation" tabindex="-1">Training ablation</button>
+        <p class="section-kicker">05 · EXPERIMENTS</p>
+        <h2 class="title is-3 section-title" id="results-title">Results</h2>
+
+        <div class="content writing-area centered-copy">
+          <p class="placeholder-text">[TODO_RESULTS_INTRO: introduce the datasets and evaluation settings.]</p>
         </div>
-        <div class="result-panel" id="panel-semkitti" role="tabpanel" aria-labelledby="tab-semkitti" tabindex="0">
-          <div class="panel-heading"><h3>SemanticKITTI validation · sequence 08</h3><span class="protocol-tag">4,071 scans · single-scan inference</span></div>
-          <div class="table-container"><table class="paper-table"><caption class="sr-only">SemanticKITTI validation performance with and without reflectance.</caption><thead><tr><th scope="col">Student input</th><th scope="col">Evaluation split</th><th scope="col" class="numeric">mIoU ↑</th><th scope="col" class="numeric">Accuracy ↑</th></tr></thead><tbody><tr class="our-row"><th scope="row">LiDAR, with reflectance</th><td>Sequence 08</td><td class="numeric"><strong>64.13</strong></td><td class="numeric">91.87</td></tr><tr><th scope="row">LiDAR, reflectance unavailable</th><td>Sequence 08</td><td class="numeric">60.78</td><td class="numeric">91.30</td></tr></tbody></table></div>
-          <p class="table-note">All values are percentages. Both rows use the same checkpoint and validation points. In the second row, reflectance and its availability flag are set to zero. No test-time augmentation.</p>
-          <details class="text-details"><summary>View the separately reported test result</summary><p>The supplied thesis comparison tables report <strong>63.5% mIoU</strong> and <strong>90.3% accuracy</strong> on SemanticKITTI <strong>test sequences 11–21</strong>. This is a reported test result; the available validation records establish the sequence 08 results above. The original test-submission link is <span class="inline-placeholder">TO ADD</span>.</p></details>
+
+        <div class="module-list">
+          <article class="edit-module" id="segmentation-results">
+            <p class="module-number">5.1</p>
+            <div class="module-body">
+              <h3>Semantic Segmentation</h3>
+              <div class="content">
+                <p class="placeholder-text">[TODO_SEGMENTATION_RESULTS: add your segmentation results and discussion.]</p>
+              </div>
+              <!-- Insert segmentation tables and qualitative comparisons here. -->
+            </div>
+          </article>
+
+          <article class="edit-module" id="ablation-results">
+            <p class="module-number">5.2</p>
+            <div class="module-body">
+              <h3>Ablation Studies</h3>
+              <div class="content">
+                <p class="placeholder-text">[TODO_ABLATION_RESULTS: add your ablation results and discussion.]</p>
+              </div>
+              <!-- Insert ablation tables or figures here. -->
+            </div>
+          </article>
+
+          <article class="edit-module" id="mapping-results">
+            <p class="module-number">5.3</p>
+            <div class="module-body">
+              <h3>Semantic Mapping and Trajectory Estimation</h3>
+              <div class="content">
+                <p class="placeholder-text">[TODO_MAPPING_RESULTS: add your map visualizations and trajectory evaluation.]</p>
+              </div>
+              <!-- Insert maps, trajectory figures, tables, or a video here. -->
+            </div>
+          </article>
         </div>
-        <div class="result-panel" id="panel-ipb" role="tabpanel" aria-labelledby="tab-ipb" tabindex="0" hidden>
-          <div class="panel-heading"><h3>IPB validation · frames 400–499</h3><span class="protocol-tag">100 scans · 12,946,458 valid points</span></div>
-          <div class="table-container"><table class="paper-table"><caption class="sr-only">IPB held-out validation comparison, including training data and inference modalities.</caption><thead><tr><th scope="col">Method</th><th scope="col">Training data</th><th scope="col">Inference</th><th scope="col" class="numeric">mIoU ↑</th><th scope="col" class="numeric">Acc. ↑</th></tr></thead><tbody><tr><th scope="row">LSK3DNet</th><td>SemanticKITTI</td><td>LiDAR</td><td class="numeric">19.00</td><td class="numeric">53.81</td></tr><tr><th scope="row">DINO in the Room</th><td>SemanticKITTI</td><td>LiDAR + 4 RGB views</td><td class="numeric">44.56</td><td class="numeric">88.92</td></tr><tr><th scope="row">Ours · from scratch</th><td>IPB 0–399</td><td>LiDAR</td><td class="numeric">40.82</td><td class="numeric">86.00</td></tr><tr class="our-row"><th scope="row">Ours · fine-tuned</th><td>SemanticKITTI + IPB 0–399</td><td>LiDAR</td><td class="numeric"><strong>43.78</strong></td><td class="numeric">88.74</td></tr></tbody></table></div>
-          <p class="table-note">Values are percentages. All methods are evaluated at the same valid reference points using the fixed 19-class label set. Empty class unions receive zero IoU. IPB scans do not provide reflectance. Training data and inference modalities are shown for each method.</p>
-        </div>
-        <div class="result-panel" id="panel-ablation" role="tabpanel" aria-labelledby="tab-ablation" tabindex="0" hidden>
-          <div class="panel-heading"><h3>Class-aware training · sequence 08</h3><span class="protocol-tag">DINOv3 fusion teacher + distillation in every row</span></div>
-          <div class="table-container"><table class="paper-table"><caption class="sr-only">Effect of weighting and weak-class augmentation.</caption><thead><tr><th scope="col">Training configuration</th><th scope="col" class="numeric">mIoU ↑</th><th scope="col" class="numeric">Accuracy ↑</th></tr></thead><tbody><tr><th scope="row">Unweighted cross-entropy</th><td class="numeric">61.83</td><td class="numeric">91.95</td></tr><tr class="our-row"><th scope="row">Fixed class weighting · main model</th><td class="numeric"><strong>64.13</strong></td><td class="numeric">91.87</td></tr><tr><th scope="row">Local weights + weak-class augmentation</th><td class="numeric">64.98</td><td class="numeric">91.51</td></tr></tbody></table></div>
-          <p class="table-note">Values are percentages. The final row changes both class-frequency statistics and augmentation. Its local frequency statistics include sequence 08; training scans and augmentation donors exclude 08. It is reported as a separate configuration.</p>
-        </div>
-        <p class="source-note">Results transcribed from the existing thesis experiment chapter and comparison tables. <a href="./sources/CONTENT_SOURCES.md">Source and protocol notes ↗</a></p>
-        <div class="qualitative-block">
-          <div class="subsection-heading"><h3>Point-wise predictions on IPB</h3><span class="small-label">EXISTING QUALITATIVE EXAMPLES</span></div>
-          <figure><button class="image-button" data-lightbox="./static/images/segmentation-own.jpg" data-caption="IPB examples from the epoch-44 student trained from scratch. Frames 0, 99, 199, 299, and 399 belong to training; frame 499 belongs to validation. These images illustrate the scratch model, not the fine-tuned result." aria-label="Enlarge the IPB segmentation examples"><img src="./static/images/segmentation-own.jpg" alt="Ground-truth and epoch-44 LiDAR student predictions across six IPB frames, with training and validation labels shown in the figure." loading="lazy"></button><figcaption><strong>Ground truth and student predictions.</strong> Existing epoch-44, from-scratch examples: frames 0, 99, 199, 299 and 399 are training frames; frame 499 is validation. These examples illustrate the scratch model, rather than the fine-tuned result.</figcaption></figure>
-          <div class="asset-placeholder compact-placeholder" data-placeholder="TODO_SEMKITTI_QUALITATIVE"><span class="placeholder-mark">＋</span><div><strong>SemanticKITTI qualitative comparison · TO ADD</strong><p>Add matching ground-truth, baseline, and student views from held-out sequence 08.</p></div></div>
-        </div>
+
+        <figure class="editable-figure detail-placeholder-figure">
+          <button
+            class="image-button"
+            data-lightbox="./static/images/results-placeholder.svg"
+            data-caption="Result figure to add."
+            aria-label="Enlarge the result figure">
+            <img
+              src="./static/images/results-placeholder.svg"
+              width="1120" height="280"
+              alt="Placeholder for a quantitative or qualitative result figure"
+              loading="lazy">
+          </button>
+          <figcaption><span class="placeholder-text">[Add a result figure and its caption. Move or duplicate this figure into the relevant subsection above.]</span></figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section paper-section" id="mapping">
-      <div class="container wide-container">
-        <p class="section-kicker">SEMANTIC NEURAL MAPPING</p>
-        <h2 class="title is-3 section-title">From a scan to a scene</h2>
-        <p class="section-intro">Student predictions become observations for PIN-SLAM's native semantic decoder, while geometric tracking provides the poses.</p>
-        <figure class="map-detail-figure"><button class="image-button" data-lightbox="./static/images/map-details.jpg" data-caption="KITTI09 local map comparisons at frames 400, 800 and 1200. Geometry-only, ground-truth-supervised and student-supervised columns use fixed 30 × 30 × 6 m reference boxes." aria-label="Enlarge the local semantic map comparisons"><img src="./static/images/map-details.jpg" alt="Local map detail comparisons on KITTI09 at frames 400, 800 and 1200, with geometry-only, ground-truth-supervised and student-supervised mapping." loading="lazy"></button><figcaption><strong>Local map structure and semantic labels.</strong> KITTI09 at frames 400, 800 and 1200. Each row uses a fixed 30 × 30 × 6 m reference box; columns compare geometry-only, ground-truth-supervised and student-supervised maps. KITTI09 is part of the segmentation training split and serves here as an integration example.</figcaption></figure>
-        <details class="figure-details"><summary>Inspect trajectory evaluation and alignment</summary><div class="detail-body"><p>ATE describes globally aligned trajectory error; one-frame RPE describes local motion error. Both are reported below for the same full KITTI08 run with final pose-graph optimization.</p><div class="table-container"><table class="paper-table"><caption class="sr-only">Full KITTI08 trajectory evaluation after final pose-graph optimization.</caption><thead><tr><th scope="col">Configuration</th><th scope="col" class="numeric">ATE ↓ (m)</th><th scope="col" class="numeric">RPE trans. ↓ (m)</th><th scope="col" class="numeric">RPE rot. ↓ (°)</th></tr></thead><tbody><tr><th scope="row">Geometry only</th><td class="numeric">4.1133</td><td class="numeric">0.0227</td><td class="numeric">0.1190</td></tr><tr><th scope="row">Predicted semantic map learning</th><td class="numeric">4.0360</td><td class="numeric">0.0264</td><td class="numeric">0.1196</td></tr></tbody></table></div><p class="table-note">All metrics are RMSE. ATE uses rigid SE(3) alignment with scale fixed to one; RPE uses a one-frame interval. The current integration retains geometric tracking.</p><figure><button class="image-button" data-lightbox="./static/images/trajectory-prefix.svg" data-caption="Separate prefix visualization: first 500 odometry frames on KITTI08 and IPB, rigidly aligned within each prefix. This figure does not visualize the full-sequence final-PGO values in the table." aria-label="Enlarge the first-500-frame trajectory comparisons"><img src="./static/images/trajectory-prefix.svg" alt="First-500-frame aligned odometry trajectories on KITTI08 and IPB." loading="lazy"></button><figcaption><strong>A separate prefix visualization.</strong> First 500 odometry frames on KITTI08 and IPB, aligned within each prefix. These plots use a different evaluation window from the full-sequence final-PGO table above.</figcaption></figure></div></details>
-      </div>
-    </section>
-
-    <section class="section paper-section video-section" id="video">
-      <div class="container reading-container">
-        <p class="section-kicker">PROJECT VIDEO</p>
-        <h2 class="title is-3 section-title">See the system in motion</h2>
-        <!-- TODO_DEMO_VIDEO: insert an actual video element or iframe here once a demo is available. -->
-        <div class="asset-placeholder video-placeholder"><svg class="video-play" aria-hidden="true"><use href="#icon-play"/></svg><strong>Demo video to add</strong><p>A short walk-through of LiDAR predictions, online mapping, and the resulting semantic scene.</p><span class="placeholder-tag">TODO_DEMO_VIDEO</span></div>
-      </div>
-    </section>
-
-    <section class="section paper-section" id="resources">
-      <div class="container reading-container">
-        <p class="section-kicker">RESOURCES</p>
-        <h2 class="title is-3 section-title">Read, explore, reproduce</h2>
-        <div class="resource-list">
-          <a href="#resources" class="resource-item resource-link" data-resource="thesis"><span><strong>Full thesis</strong><small>Final manuscript PDF</small></span><span class="resource-state">TO ADD <span aria-hidden="true">↗</span></span></a>
-          <a href="#resources" class="resource-item resource-link" data-resource="code"><span><strong>Code and model</strong><small>Implementation, setup, and checkpoint links</small></span><span class="resource-state">TO ADD <span aria-hidden="true">↗</span></span></a>
-          <a href="#resources" class="resource-item resource-link" data-resource="poster"><span><strong>Poster / slides</strong><small>Presentation material</small></span><span class="resource-state">TO ADD <span aria-hidden="true">↗</span></span></a>
-        </div>
-        <p class="resource-help">Resources marked “TO ADD” are placeholders. Final publication links will be added here.</p>
-      </div>
-    </section>
-
-    <section class="section paper-section citation-section" id="citation">
-      <div class="container reading-container">
-        <div class="citation-heading"><div><p class="section-kicker">CITATION</p><h2 class="title is-3">BibTeX</h2></div><button class="copy-button" id="copy-citation" type="button">Copy BibTeX</button></div>
-        <p class="citation-note">Draft citation · replace the author, official title, institution, year, and URL before use.</p>
-        <pre id="bibtex-code"><code>@mastersthesis{TODO_AUTHOR_THESIS_YEAR,
-  author = {TODO_AUTHOR_NAME},
-  title  = {TODO_OFFICIAL_THESIS_TITLE},
-  school = {TODO_UNIVERSITY},
-  year   = {TODO_YEAR},
-  url    = {TODO_SITE_URL}
-}</code></pre>
-        <p class="copy-status" id="copy-status" role="status" aria-live="polite"></p>
-        <details class="text-details acknowledgements"><summary>Acknowledgements</summary><p><span class="inline-placeholder">TODO_ACKNOWLEDGEMENTS</span> Add the supervisor, collaborators, institution, and funding acknowledgements that apply to the final thesis.</p></details>
-      </div>
-    </section>
   </main>
 
-  <footer class="footer"><div class="container reading-container has-text-centered"><p>Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>, adapted from <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>.</p><p>Website template: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Thesis and research-asset licences are specified with their releases.</p><p class="footer-bottom"><a href="#top">Back to top ↑</a><span>Local project-page draft</span></p></div></footer>
+  <footer class="footer"><div class="container reading-container has-text-centered"><p>Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>, adapted from <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>.</p><p>Website template: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Thesis and research-asset licences are specified with their releases.</p><p class="footer-bottom"><a href="#top">Back to top ↑</a><span>Five-section writing draft</span></p></div></footer>
 
   <dialog id="resource-dialog" class="resource-dialog" aria-labelledby="resource-dialog-title"><button class="dialog-close" data-close-dialog type="button" aria-label="Close resource information">×</button><span class="dialog-kicker">RESOURCE TO ADD</span><h2 id="resource-dialog-title">Resource pending</h2><p id="resource-dialog-description"></p><button class="dialog-done" data-close-dialog type="button">Got it</button></dialog>
   <dialog id="image-dialog" class="image-dialog" aria-label="Enlarged research figure"><button class="dialog-close image-dialog-close" data-close-image type="button" aria-label="Close enlarged figure">×</button><img id="lightbox-image" alt=""><p id="lightbox-caption"></p></dialog>

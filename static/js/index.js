@@ -80,7 +80,7 @@ const RESOURCE_LINKS = {
   imageDialog.addEventListener('close', () => document.documentElement.classList.remove('modal-open'));
 
   const copyButton = document.querySelector('#copy-citation');
-  copyButton.addEventListener('click', async () => {
+  copyButton?.addEventListener('click', async () => {
     const citation = document.querySelector('#bibtex-code').textContent;
     const status = document.querySelector('#copy-status');
     try {

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="280" viewBox="0 0 1120 280" role="img" aria-labelledby="title desc">
+<title id="title">RESULTS placeholder</title><desc id="desc">Add a result figure or comparison here. This is an empty figure slot, not a research result.</desc>
+<rect x="1" y="1" width="1118" height="278" rx="6" fill="#fafaf8" stroke="#d8d6cf" stroke-width="1.5" stroke-dasharray="7 6"/>
+<g fill="none" stroke="#b6b3a8" stroke-width="1.4"><rect x="540" y="77.0" width="40" height="30" rx="3"/><circle cx="551" cy="86.0" r="3"/><path d="M543 104.0l10-10 8 7 8-11 8 14"/></g>
+<text x="560" y="136.0" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="17" font-weight="600" fill="#7d7c74" letter-spacing="2">RESULTS</text>
+<text x="560" y="165.0" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="13" fill="#a4a095">Add a result figure or comparison here</text>
+<text x="560" y="192.0" text-anchor="middle" font-family="Segoe UI,Arial,sans-serif" font-size="10" fill="#aaa598" letter-spacing="1">FIGURE TO ADD</text>
+</svg>
