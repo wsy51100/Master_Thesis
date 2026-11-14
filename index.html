@@ -53,6 +53,39 @@
 
   <main id="main-content">
 
+
+    <!-- Intro GIFs: replace the files in static/images to update these previews. -->
+    <section class="demo-preview-section" id="intro-demos" aria-label="Semantic segmentation examples">
+      <div class="container wide-container">
+        <div class="demo-preview-grid">
+          <figure>
+            <button class="image-button"
+                    data-lightbox="./static/images/semantickitti_vis.gif"
+                    data-caption="SemanticKITTI qualitative visualization."
+                    aria-label="Enlarge the SemanticKITTI visualization">
+              <img src="./static/images/semantickitti_vis.gif"
+                   width="1561" height="836"
+                   alt="SemanticKITTI RGB image, projected semantic predictions, and 3D prediction and ground truth"
+                   decoding="async">
+            </button>
+            <figcaption>SemanticKITTI</figcaption>
+          </figure>
+          <figure>
+            <button class="image-button"
+                    data-lightbox="./static/images/ipb_vis.gif"
+                    data-caption="IPB qualitative visualization."
+                    aria-label="Enlarge the IPB visualization">
+              <img src="./static/images/ipb_vis.gif"
+                   width="1597" height="856"
+                   alt="IPB RGB image, projected semantic predictions, and 3D prediction and ground truth"
+                   decoding="async">
+            </button>
+            <figcaption>IPB</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ============================================================
          01 / OVERALL PIPELINE FIGURE
          TODO_OVERVIEW_IMAGE: replace BOTH image paths with your figure.
