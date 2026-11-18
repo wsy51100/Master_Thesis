@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="./static/css/bulma.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
   <link rel="stylesheet" href="./static/css/five-sections.css">
+  <style>
+    #main-content [hidden],
+    #project-resources [hidden],
+    .footer-bottom [hidden] { display: none !important; }
+  </style>
   <script defer src="./static/js/index.js"></script>
 </head>
 <body>
@@ -43,8 +48,8 @@
         <p class="publication-supervisor">Supervisor: <span data-placeholder="TODO_SUPERVISOR">Dr.<a href="https://www.ipb.uni-bonn.de/people/louis-wiesmann/index.html" target="_blank" rel="noopener noreferrer">Louis Bonerath</a> and Prof.Dr <a href="https://www.ipb.uni-bonn.de/people/cyrill-stachniss/index.html" target="_blank" rel="noopener noreferrer">Cyrill Stachniss</a></span> <span class="dot">·</span> <span data-placeholder="TODO_YEAR">2026</span></p>
         <div class="publication-links" id="project-resources" aria-label="Project resources">
           <a href="#project-resources" class="button is-dark is-rounded resource-link" data-resource="thesis"><svg class="icon-svg" aria-hidden="true"><use href="#icon-file"/></svg><span>Thesis PDF</span><span class="button-pending">TO ADD</span></a>
-          <a href="#project-resources" class="button is-dark is-rounded resource-link" data-resource="code"><svg class="icon-svg" aria-hidden="true"><use href="#icon-code"/></svg><span>Code</span><span class="button-pending">TO ADD</span></a>
-          <a href="#results" class="button is-dark is-rounded resource-link" data-resource="video"><svg class="icon-svg" aria-hidden="true"><use href="#icon-play"/></svg><span>Video</span><span class="button-pending">TO ADD</span></a>
+          <a href="#project-resources" class="button is-dark is-rounded resource-link" data-resource="code" hidden><svg class="icon-svg" aria-hidden="true"><use href="#icon-code"/></svg><span>Code</span><span class="button-pending">TO ADD</span></a>
+          <a href="#results" class="button is-dark is-rounded resource-link" data-resource="video" hidden><svg class="icon-svg" aria-hidden="true"><use href="#icon-play"/></svg><span>Video</span><span class="button-pending">TO ADD</span></a>
           <a href="#project-resources" class="button is-dark is-rounded resource-link" data-resource="poster"><svg class="icon-svg" aria-hidden="true"><use href="#icon-poster"/></svg><span>Poster</span><span class="button-pending">TO ADD</span></a>
         </div>
       </div>
@@ -54,9 +59,60 @@
   <main id="main-content">
 
 
+    <!-- Keep section links and sections in sync when publishing a draft. -->
+    <nav class="section-nav" aria-label="Page sections">
+      <div>
+        <a href="#overview" hidden>Overview</a>
+        <a href="#abstract">Abstract</a>
+        <a href="#intro-demos">Visualizations</a>
+        <a href="#motivation" hidden>Motivation</a>
+        <a href="#pipeline" hidden>Pipeline</a>
+        <a href="#results" hidden>Results</a>
+      </div>
+    </nav>
+
+    <!-- ============================================================
+         02 / ABSTRACT
+         TODO_ABSTRACT: replace the placeholder paragraph with your text.
+         Add a new <p>...</p> for each additional paragraph.
+         ============================================================ -->
+    <section class="section paper-section abstract-section" id="abstract" aria-labelledby="abstract-title">
+      <div class="container reading-container">
+        <p class="section-kicker" hidden>02 · ABSTRACT</p>
+        <h2 class="title is-3 section-title" id="abstract-title">Abstract</h2>
+
+        <div class="content writing-area">
+          <p> In simultaneous localization and mapping problem beyond pose estimation
+                                      and geometric reconstruction, a good semantic understanding of the scene
+                                      is also crucial part to support navigation, interaction, and decision-making.
+                                      SLAM provides a key foundation for estimating of the system’s motion, position, and together with a representation of vehicle’s surroundings. In particular,
+                                      self-driving cars or robots need a fine-grained understanding of the surfaces and
+                                      objects in their vicinity. Geometric maps describe the spatial structure of the
+                                      environment, while semantic information identifies the categories of its objects
+                                      and regions. This additional context can support navigation, interaction, and
+                                      decision-making by helping autonomous systems interpret their surroundings.</p>
+                                      
+                                      <p>This thesis addresses the integration of semantic scene understanding into
+                                      an efficient implicit SLAM pipeline. The objective is to exploit vision foundation model features during training while enabling semantic segmentation from
+                                      LiDAR scans alone at inference time, and to incorporate the resulting predictions
+                                      into an incrementally updated map. The proposed approach takes advantage of
+                                      DINOv3 feature during training of a semantic segmentation model. Once trained,
+                                      the model predicts semantic labels directly from LiDAR input, without requiring images for segmentation. The segmentation pipeline is integrated into PIN
+                                      SLAM, where successive scans update the same map, allowing scene geometry
+                                      and semantic categories to be queried and visualized together.</p>
+                                     
+                                      <p>Our method on SemanticKITTI achieves a mean intersection over union (mIoU)
+                                      of 64.13% on the validation set and 63.5% on the test set, with semantic segmentation inference running at 16.5 frames per second. On the IPB dataset
+                                      validation split, the model trained on manually annotated local data achieves
+                                      56.87% mIoU. Compared with geometry-only mapping, the semantic configuration achieves lower aligned absolute pose error. The integrated system demonstrates live semantic map updates in PIN-SLAM using LiDAR input alone.</p>
+        </div>
+      </div>
+    </section>
+
     <!-- Intro GIFs: replace the files in static/images to update these previews. -->
-    <section class="demo-preview-section" id="intro-demos" aria-label="Semantic segmentation examples">
+    <section class="demo-preview-section" id="intro-demos" aria-labelledby="visualizations-title">
       <div class="container wide-container">
+        <h2 class="title is-3 section-title" id="visualizations-title">Visualizations</h2>
         <div class="demo-preview-grid">
           <figure>
             <button class="image-button"
@@ -91,7 +147,7 @@
          TODO_OVERVIEW_IMAGE: replace BOTH image paths with your figure.
          TODO_OVERVIEW_CAPTION: replace the visible figure caption.
          ============================================================ -->
-    <section class="overview-section" id="overview" aria-labelledby="overview-title">
+    <section class="overview-section" id="overview" hidden aria-labelledby="overview-title">
       <div class="container wide-container">
         <p class="section-kicker">01 · OVERVIEW</p>
         <h2 class="title is-3 section-title" id="overview-title">Overall of the Pipeline</h2>
@@ -120,61 +176,12 @@
       </div>
     </section>
 
-    <!-- Navigation links must match the five section IDs. -->
-    <nav class="section-nav" aria-label="Page sections">
-      <div>
-        <a href="#overview">Overview</a>
-        <a href="#abstract">Abstract</a>
-        <a href="#motivation">Motivation</a>
-        <a href="#pipeline">Pipeline</a>
-        <a href="#results">Results</a>
-      </div>
-    </nav>
-
-    <!-- ============================================================
-         02 / ABSTRACT
-         TODO_ABSTRACT: replace the placeholder paragraph with your text.
-         Add a new <p>...</p> for each additional paragraph.
-         ============================================================ -->
-    <section class="section paper-section abstract-section" id="abstract" aria-labelledby="abstract-title">
-      <div class="container reading-container">
-        <p class="section-kicker">02 · ABSTRACT</p>
-        <h2 class="title is-3 section-title" id="abstract-title">Abstract</h2>
-
-        <div class="content writing-area">
-          <p> In simultaneous localization and mapping problem beyond pose estimation
-                                      and geometric reconstruction, a good semantic understanding of the scene
-                                      is also crucial part to support navigation, interaction, and decision-making.
-                                      SLAM provides a key foundation for estimating of the system’s motion, position, and together with a representation of vehicle’s surroundings. In particular,
-                                      self-driving cars or robots need a fine-grained understanding of the surfaces and
-                                      objects in their vicinity. Geometric maps describe the spatial structure of the
-                                      environment, while semantic information identifies the categories of its objects
-                                      and regions. This additional context can support navigation, interaction, and
-                                      decision-making by helping autonomous systems interpret their surroundings.</p>
-                                      
-                                      <p>This thesis addresses the integration of semantic scene understanding into
-                                      an efficient implicit SLAM pipeline. The objective is to exploit vision foundation model features during training while enabling semantic segmentation from
-                                      LiDAR scans alone at inference time, and to incorporate the resulting predictions
-                                      into an incrementally updated map. The proposed approach takes advantage of
-                                      DINOv3 feature during training of a semantic segmentation model. Once trained,
-                                      the model predicts semantic labels directly from LiDAR input, without requiring images for segmentation. The segmentation pipeline is integrated into PIN
-                                      SLAM, where successive scans update the same map, allowing scene geometry
-                                      and semantic categories to be queried and visualized together.</p>
-                                     
-                                      <p>Our method on SemanticKITTI achieves a mean intersection over union (mIoU)
-                                      of 64.13% on the validation set and 63.5% on the test set, with semantic segmentation inference running at 16.5 frames per second. On the IPB dataset
-                                      validation split, the model trained on manually annotated local data achieves
-                                      56.87% mIoU. Compared with geometry-only mapping, the semantic configuration achieves lower aligned absolute pose error. The integrated system demonstrates live semantic map updates in PIN-SLAM using LiDAR input alone.</p>
-        </div>
-      </div>
-    </section>
-
     <!-- ============================================================
          03 / MOTIVATION
          TODO_MOTIVATION: add the problem, its importance, and your goal.
          You can use several <p>...</p> elements.
          ============================================================ -->
-    <section class="section paper-section" id="motivation" aria-labelledby="motivation-title">
+    <section class="section paper-section" id="motivation" hidden aria-labelledby="motivation-title">
       <div class="container reading-container">
         <p class="section-kicker">03 · MOTIVATION</p>
         <h2 class="title is-3 section-title" id="motivation-title">Motivation</h2>
@@ -192,7 +199,7 @@
          The overview above answers "what does the system look like?"
          This section explains the individual parts.
          ============================================================ -->
-    <section class="section paper-section" id="pipeline" aria-labelledby="pipeline-title">
+    <section class="section paper-section" id="pipeline" hidden aria-labelledby="pipeline-title">
       <div class="container wide-container">
         <p class="section-kicker">04 · METHOD</p>
         <h2 class="title is-3 section-title" id="pipeline-title">Pipeline</h2>
@@ -259,7 +266,7 @@
          Add your own figures, tables, captions, splits and metrics.
          No previous experiment numbers have been inserted here.
          ============================================================ -->
-    <section class="section paper-section results-section" id="results" aria-labelledby="results-title">
+    <section class="section paper-section results-section" id="results" hidden aria-labelledby="results-title">
       <div class="container wide-container">
         <p class="section-kicker">05 · EXPERIMENTS</p>
         <h2 class="title is-3 section-title" id="results-title">Results</h2>
@@ -322,7 +329,7 @@
 
   </main>
 
-  <footer class="footer"><div class="container reading-container has-text-centered"><p>Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>, adapted from <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>.</p><p>Website template: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Thesis and research-asset licences are specified with their releases.</p><p class="footer-bottom"><a href="#top">Back to top ↑</a><span>Five-section writing draft</span></p></div></footer>
+  <footer class="footer"><div class="container reading-container has-text-centered"><p>Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank" rel="noopener noreferrer">Academic Project Page Template</a>, adapted from <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a>.</p><p>Website template: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>. Thesis and research-asset licences are specified with their releases.</p><p class="footer-bottom"><a href="#top">Back to top ↑</a><span hidden>Five-section writing draft</span></p></div></footer>
 
   <dialog id="resource-dialog" class="resource-dialog" aria-labelledby="resource-dialog-title"><button class="dialog-close" data-close-dialog type="button" aria-label="Close resource information">×</button><span class="dialog-kicker">RESOURCE TO ADD</span><h2 id="resource-dialog-title">Resource pending</h2><p id="resource-dialog-description"></p><button class="dialog-done" data-close-dialog type="button">Got it</button></dialog>
   <dialog id="image-dialog" class="image-dialog" aria-label="Enlarged research figure"><button class="dialog-close image-dialog-close" data-close-image type="button" aria-label="Close enlarged figure">×</button><img id="lightbox-image" alt=""><p id="lightbox-caption"></p></dialog>
